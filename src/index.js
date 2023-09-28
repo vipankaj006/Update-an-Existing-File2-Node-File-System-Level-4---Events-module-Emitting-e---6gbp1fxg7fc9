@@ -5,7 +5,11 @@ const fileContent = ", is an online learning platform.";
 const updateFile = async (fileName, fileContent) => {
   //Write your code here to overwrite the file content
   //Don't change function name
-  fs.appendFileSync(fileName, fileContent);
+ const fileData = fs.readFileSync(fileName);
+   let contents = fileData.toString();
+    contents = contents+fileContent;
+   fs.writeFileSync(fileName,contents);
+   
 };
 
 module.exports = updateFile;
